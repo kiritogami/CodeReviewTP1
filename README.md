@@ -1,7 +1,7 @@
-# AwesomePasswordChecker
+# tp1.com.AwesomePasswordChecker
 
 **Description :**  
-AwesomePasswordChecker est un outil permettant d'évaluer la sécurité d'un mot de passe en se basant sur des méthodes telles que la distance euclidienne entre des centres de clusters prédéfinis et un masque de caractères. Il fournit également une méthode pour calculer un hash MD5.
+tp1.com.AwesomePasswordChecker est un outil permettant d'évaluer la sécurité d'un mot de passe en se basant sur des méthodes telles que la distance euclidienne entre des centres de clusters prédéfinis et un masque de caractères. Il fournit également une méthode pour calculer un hash MD5.
 
 ---
 
@@ -23,4 +23,4 @@ AwesomePasswordChecker est un outil permettant d'évaluer la sécurité d'un mot
 ### Étapes
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/votre-utilisateur/AwesomePasswordChecker.git
+   git clone https://github.com/votre-utilisateur/tp1.com.AwesomePasswordChecker.git

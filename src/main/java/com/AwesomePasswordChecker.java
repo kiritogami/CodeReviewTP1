@@ -1,17 +1,19 @@
+package com;
+
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * Classe AwesomePasswordChecker.
+ * Classe com.AwesomePasswordChecker.
  * Cette classe fournit des méthodes pour analyser et évaluer la sécurité des mots de passe
  * à l'aide de clusters et d'algorithmes spécifiques.
  */
@@ -28,24 +30,24 @@ public class AwesomePasswordChecker {
   private final List<double[]> clusterCenters = new ArrayList<>();
 
   /**
-   * Récupère l'instance singleton d'AwesomePasswordChecker en chargeant un fichier de clusters.
+   * Récupère l'instance singleton com.AwesomePasswordChecker en chargeant un fichier de clusters.
    *
    * @param file le fichier contenant les centres des clusters.
-   * @return l'instance unique d'AwesomePasswordChecker.
+   * @return l'instance unique com.AwesomePasswordChecker.
    * @throws IOException si une erreur d'entrée/sortie se produit.
    */
   public static AwesomePasswordChecker getInstance(File file) throws IOException {
     if (instance == null) {
-      instance = new AwesomePasswordChecker(new FileInputStream(file));
+      instance = new AwesomePasswordChecker(Files.newInputStream(file.toPath()));
     }
     return instance;
   }
 
 
   /**
-   * Récupère l'instance singleton d'AwesomePasswordChecker en chargeant un fichier par défaut.
+   * Récupère l'instance singleton com.AwesomePasswordChecker en chargeant un fichier par défaut.
    *
-   * @return l'instance unique d'AwesomePasswordChecker.
+   * @return l'instance unique com.AwesomePasswordChecker.
    * @throws IOException si une erreur d'entrée/sortie se produit.
    */
   public static AwesomePasswordChecker getInstance() throws IOException {
@@ -68,7 +70,7 @@ public class AwesomePasswordChecker {
     BufferedReader br = new BufferedReader(new InputStreamReader(is));
     String line;
     while ((line = br.readLine()) != null) {
-      String[] values = line.split(";");
+      String[] values = line.split(",");
       double[] center = new double[values.length];
 
       for (int i = 0; i < values.length; ++i) {
@@ -170,7 +172,7 @@ public class AwesomePasswordChecker {
   private double euclideanDistance(int[] a, double[] b) {
     double sum = 0;
     for (int i = 0; i < a.length; i++) {
-      sum += (a[i] - b[i]) * (a[i] + b[i]);
+      sum += (a[i] - b[i]) * (a[i] - b[i]);
     }
     return Math.sqrt(sum);
   }

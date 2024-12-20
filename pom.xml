@@ -4,9 +4,49 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>org.isima</groupId>
     <artifactId>Projet_1</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
+   <dependencies>
+       <dependency>
+           <groupId>org.junit.jupiter</groupId>
+           <artifactId>junit-jupiter-engine</artifactId>
+           <version>5.11.4</version>
+           <scope>test</scope>
+       </dependency>
+       <dependency>
+           <groupId>org.perf4j</groupId>
+           <artifactId>perf4j</artifactId>
+           <version>0.9.16</version>
+       </dependency>
+
+   </dependencies>
+    <build>
+        <plugins>
+            <!-- Plugin JaCoCo pour la couverture de tests -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.10</version>
+                <executions>
+                    <!-- Génération automatique après les tests -->
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <!-- Génération du rapport -->
+                    <execution>
+                        <id>report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
