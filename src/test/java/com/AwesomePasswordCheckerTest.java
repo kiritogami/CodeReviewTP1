@@ -167,8 +167,7 @@ class AwesomePasswordCheckerTest {
 
     String input = "Isim@_Ariri07";
     String result = AwesomePasswordChecker.computeMd5(input);
-    assertNotNull(input);
-
+    assertNotNull(result);
   }
 
   /**
